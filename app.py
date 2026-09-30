@@ -14,61 +14,112 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
+    /* Background */
     .stApp {
-        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: white; 
     }
-    p, label, span, div {
-        color: white !important;
+
+    /* General text */
+    p, label, span, .stMarkdown {
+        color: #e0e0e0 !important;
     }
+
+    /* Headings */
     h1, h2, h3 {
-        color: #00d2ff !important; 
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        color: #00d2ff !important;
+        text-shadow: 0 0 20px rgba(0,210,255,0.4);
         text-align: center;
+        font-weight: 700;
+        letter-spacing: 1px;
     }
-    .stButton {
-        display: flex;
-        justify-content: center;
+
+    /* Input boxes - FIXED: dark background + white text clearly visible */
+    input[type="number"] {
+        background-color: #1a2a3a !important;
+        color: #ffffff !important;
+        border: 1.5px solid #00d2ff !important;
+        border-radius: 10px !important;
+        padding: 10px 14px !important;
+        font-size: 16px !important;
+        caret-color: #00d2ff !important;
     }
-    .stButton>button {
-        width: auto;
-        min-width: 200px;
+    input[type="number"]:focus {
+        border-color: #00d2ff !important;
+        box-shadow: 0 0 10px rgba(0,210,255,0.4) !important;
+        outline: none !important;
+    }
+
+    /* Number input wrapper */
+    .stNumberInput > div > div {
+        background-color: #1a2a3a !important;
+        border-radius: 10px !important;
+        border: 1.5px solid #2a4a6a !important;
+    }
+
+    /* +/- buttons */
+    .stNumberInput button {
+        background-color: #2a4a6a !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 6px !important;
+    }
+    .stNumberInput button:hover {
+        background-color: #00d2ff !important;
+    }
+
+    /* Field labels */
+    .stNumberInput label {
+        color: #00d2ff !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Main Buttons */
+    .stButton { display: flex; justify-content: center; }
+    .stButton > button {
+        min-width: 180px;
         border-radius: 30px;
         background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
         color: white !important;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
         border: none;
-        padding: 0.8rem 2rem;
+        padding: 0.7rem 2rem;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 20px rgba(0,210,255,0.35);
     }
-    .stButton>button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,210,255,0.5);
         background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
     }
-    .stNumberInput > div > div > input {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        caret-color: white;
-    }
-    .calculated-box {
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 2px solid #00d2ff;
+
+    /* Progress bar */
+    .stProgress > div > div > div > div {
+        background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
         border-radius: 10px;
+    }
+    .stProgress > div > div {
+        background-color: rgba(255,255,255,0.1) !important;
+        border-radius: 10px;
+    }
+
+    /* BMI calculated box */
+    .calculated-box {
+        background: linear-gradient(135deg, rgba(0,210,255,0.15), rgba(58,123,213,0.15));
+        border: 2px solid #00d2ff;
+        border-radius: 15px;
         padding: 1.5rem;
         text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 15px rgba(0,210,255,0.2);
     }
-    .stProgress > div > div > div > div {
-        background-color: #00d2ff;
-        background-image: linear-gradient(90deg, #00d2ff 0%, #928DAB 100%);
-    }
+
+    /* Divider */
+    hr { border-color: rgba(0,210,255,0.3) !important; }
     </style>
     """, unsafe_allow_html=True)
 
